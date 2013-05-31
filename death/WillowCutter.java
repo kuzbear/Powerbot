@@ -95,13 +95,13 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
 	}
 	
 	//START: Code generated using Enfilade's Easel
-    private final Color color1 = new Color(255, 255, 255);
-    private final Color color2 = new Color(0, 0, 0, 200);
-    private final Color color3 = new Color(0, 0, 0);
+    private static final Color WHITE = new Color(255, 255, 255);
+    private static final Color TRANSPARENT_BLACK = new Color(0, 0, 0, 200);
+    private static final Color BLACK = new Color(0, 0, 0);
 
-    private final BasicStroke stroke1 = new BasicStroke(1);
+    private static final BasicStroke BORDER = new BasicStroke(1);
 
-    private final Font font1 = new Font("Arial", 1, 10);
+    private static final Font ARIAL = new Font("Arial", 1, 10);
 
     public void onRepaint(Graphics g1) {
         Graphics2D g = (Graphics2D)g1;
@@ -149,13 +149,13 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
 			Variables.hoursToLevel = 0;
 		}
 		
-		g.setColor(color2);
+		g.setColor(TRANSPARENT_BLACK);
         g.fillRect(4, 4, 150, 85);
-        g.setColor(color3);
-        g.setStroke(stroke1);
+        g.setColor(BLACK);
+        g.setStroke(BORDER);
         g.drawRect(4, 4, 150, 85);
-        g.setFont(font1);
-        g.setColor(color1);
+        g.setFont(ARIAL);
+        g.setColor(WHITE);
         g.drawString("Status: " + Variables.getStatus(), 13, 22);
         g.drawString("RunTime: " + hours + ":" + minutes + ":" + seconds, 13, 33);
         g.drawString("Level: " + Variables.getLevel() + " (" + Variables.getGained() + ")", 13, 44);
