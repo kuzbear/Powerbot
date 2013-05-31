@@ -150,17 +150,17 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
 		}
 		
 		g.setColor(color2);
-        g.fillRect(4, 4, 131, 84);
+        g.fillRect(4, 4, 150, 85);
         g.setColor(color3);
         g.setStroke(stroke1);
-        g.drawRect(4, 4, 131, 84);
+        g.drawRect(4, 4, 150, 85);
         g.setFont(font1);
         g.setColor(color1);
         g.drawString("Status: " + Variables.getStatus(), 13, 22);
         g.drawString("RunTime: " + hours + ":" + minutes + ":" + seconds, 13, 33);
         g.drawString("Level: " + Variables.getLevel() + " (" + Variables.getGained() + ")", 13, 44);
         g.drawString("TTL: " + Variables.hoursToLevel + ":" + Variables.minutesToLevel + ":" + Variables.secondsToLevel, 13, 55);
-        g.drawString("EXP: " + Variables.totalXp, 13, 66);
+        g.drawString("EXP: " + Variables.totalXp + " (" + ((int)Variables.hourExp) + ")", 13, 66);
         g.drawString("Cut: " + Variables.getCut(), 13, 77);
     }
 }
