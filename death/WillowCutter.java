@@ -28,7 +28,7 @@ import death.Resources.Variables;
 
 @Manifest(
 		authors = { "kuzbear" }, 
-		description = "cuts willows and drops logs at Draynor 0.04", 
+		description = "cuts willows and banks logs at Draynor", 
 		name = "kuzbearWillowCutter",
 		version = 0.01
 		)
@@ -88,8 +88,7 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
 		if(x.contains("You've just advanced a Woodcutting level!")) {
 			Variables.addGained();
 			Variables.setLevel(Skills.getRealLevel(Constants.getSkill()));
-		}
-		if(x.contains("You get some willow logs")) {
+		} else if(x.contains("You get some willow logs")) {
 			Variables.addCut();
 		}
 	}

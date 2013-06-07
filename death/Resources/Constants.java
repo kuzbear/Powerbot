@@ -19,11 +19,7 @@ public class Constants {
 	private static final int SKILL = Skills.WOODCUTTING;
 	
 	public static boolean inBank() {
-		if(BANK.contains(Players.getLocal().getLocation())) {
-			return true;
-		} else {
-			return false;
-		}
+		return BANK.contains(Players.getLocal().getLocation());
 	}
 	
 	public static int getWillowLog() {

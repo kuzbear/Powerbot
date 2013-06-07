@@ -16,7 +16,7 @@ public class CuttingHandler extends Node {
 	
 	public boolean waitFor(int time, boolean Condition) {
 		Variables.timer = new Timer(time);
-		if(Variables.timer.isRunning()) {
+		while(Variables.timer.isRunning()) {
 			if(Condition)
 				Task.sleep(2000);
 			return true;
@@ -36,21 +36,19 @@ public class CuttingHandler extends Node {
 		Variables.setStatus("Cutting Trees");
 		if(tree != null) {
 			if(tree.isOnScreen()) {
-				//if(!Players.getLocal().isMoving()) {
-					if(Players.getLocal().getAnimation() == -1) {
+				if(Players.getLocal().getAnimation() == -1) {
+					tree.interact("Chop down");
+					Task.sleep(500);
+					waitFor(5000, (
+							Players.getLocal().isMoving()
+							));
+					
+				} else {
+					if(tree.getLocation().distanceTo() > 1) {
 						tree.interact("Chop down");
-						Task.sleep(500);
-						waitFor(5000, (
-								Players.getLocal().isMoving()
-								));
-						
-					} else {
-						if(tree.getLocation().distanceTo() > 1) {
-							tree.interact("Chop down");
-							Task.sleep(1000);
-						}
+						Task.sleep(1000);
 					}
-				//}
+				}
 			} else {
 				Camera.turnTo(tree);
 			}
