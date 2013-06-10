@@ -20,13 +20,8 @@ public class BankingHandler extends Node {
 	public void execute() {
 		Variables.setStatus("Banking");
 		if(Bank.isOpen()) {
-			if(Inventory.contains(Constants.getHatchet())) {
-				Bank.deposit(Constants.getWillowLog(), 27);
-				Bank.close();
-			} else {
-				Bank.depositInventory();
-				Bank.close();
-			}
+			Bank.deposit(Constants.getWillowLog(), Inventory.getCount(Constants.getWillowLog()));
+			Bank.close();
 		} else {
 			if(Players.getLocal().isMoving()) {
 				Task.sleep(100);
