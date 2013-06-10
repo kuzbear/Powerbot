@@ -47,8 +47,6 @@ public class CuttingHandler extends Node {
 					Task.sleep(1000);
 				}
 			}
-		} else {
-			Camera.turnTo(tree);
 		}
 	}
 }
