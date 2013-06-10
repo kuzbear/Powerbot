@@ -34,24 +34,21 @@ public class CuttingHandler extends Node {
 	public void execute() {
 		SceneObject tree = SceneEntities.getNearest(Constants.getWillowtree());
 		Variables.setStatus("Cutting Trees");
-		if(tree != null) {
-			if(tree.isOnScreen()) {
-				if(Players.getLocal().getAnimation() == -1) {
-					tree.interact("Chop down");
-					Task.sleep(500);
-					waitFor(5000, (
-							Players.getLocal().isMoving()
-							));
-					
-				} else {
-					if(tree.getLocation().distanceTo() > 1) {
-						tree.interact("Chop down");
-						Task.sleep(1000);
-					}
-				}
+		if(tree != null && tree.isOnScreen()) {
+			if(Players.getLocal().getAnimation() == -1) {
+				tree.interact("Chop down");
+				Task.sleep(500);
+				waitFor(5000, (
+						Players.getLocal().isMoving()
+						));
 			} else {
-				Camera.turnTo(tree);
+				if(tree.getLocation().distanceTo() > 1) {
+					tree.interact("Chop down");
+					Task.sleep(1000);
+				}
 			}
+		} else {
+			Camera.turnTo(tree);
 		}
 	}
 }

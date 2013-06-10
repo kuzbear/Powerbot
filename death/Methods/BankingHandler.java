@@ -28,7 +28,6 @@ public class BankingHandler extends Node {
 				Bank.close();
 			}
 		} else {
-			
 			if(Players.getLocal().isMoving()) {
 				Task.sleep(100);
 			}
