@@ -84,11 +84,10 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
 
 	@Override
 	public void messageReceived(MessageEvent e) {
-		String x = e.getMessage();
-		if(x.contains("You've just advanced a Woodcutting level!")) {
+		if(e.getMessage().contains("You've just advanced a Woodcutting level!")) {
 			Variables.addGained();
 			Variables.setLevel(Skills.getRealLevel(Constants.getSkill()));
-		} else if(x.contains("You get some willow logs")) {
+		} else if(e.getMessage().contains("You get some willow logs")) {
 			Variables.addCut();
 		}
 	}
