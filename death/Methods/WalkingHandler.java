@@ -19,10 +19,10 @@ public class WalkingHandler extends Node {
 	public void execute() {
 		if(!Players.getLocal().isMoving()) {
 			if(Constants.inBank() && (!Inventory.isFull())) {
-				Variables.setStatus("Walking to Tree");
+				Variables.status = "Walking to Tree";
 				Walking.walk(Constants.WALK_TO_TREE);
 			} else if((!Constants.inBank()) && Inventory.isFull()) {
-				Variables.setStatus("Walking to Bank");
+				Variables.status = "Walking to Bank";
 				Walking.walk(Constants.WALK_TO_BANK);
 			}
 		}
