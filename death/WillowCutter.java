@@ -75,8 +75,8 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
     }
 	
 	public void onStart() {
-		Variables.setLevel(Skills.getRealLevel(Constants.getSkill()));
-		Variables.setStartTime(System.currentTimeMillis());
+		Variables.level = Skills.getRealLevel(Constants.skill);
+		Variables.startTime = System.currentTimeMillis();
 		provide(new CuttingHandler());
 		provide(new WalkingHandler());
 		provide(new BankingHandler());
@@ -85,10 +85,10 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
 	@Override
 	public void messageReceived(MessageEvent e) {
 		if(e.getMessage().contains("You've just advanced a Woodcutting level!")) {
-			Variables.addGained();
-			Variables.setLevel(Skills.getRealLevel(Constants.getSkill()));
+			Variables.gained++;
+			Variables.level = Skills.getRealLevel(Constants.SKILL);
 		} else if(e.getMessage().contains("You get some willow logs")) {
-			Variables.addCut();
+			Variables.cut++;
 		}
 	}
 	
@@ -120,8 +120,8 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
 			minutes -= hours * 60;
 		}
 		
-		Variables.setTotalxp(Variables.getCut() * 67.5);
-		Variables.expTillNextLevel = Skills.getExperienceToLevel(Constants.getSkill(), Variables.getLevel() + 1 + Variables.getGained());
+		Variables.totalXp = Variables.getCut() * 67.5;
+		Variables.expTillNextLevel = Skills.getExperienceToLevel(Constants.SKILL, Variables.level + 1 + Variables.gained;
 
 		if ((minutes > 0 || hours > 0 || seconds > 0) && Variables.totalXp > 0) {
 			Variables.secondExp = (float) Variables.totalXp
@@ -154,11 +154,11 @@ public class WillowCutter extends ActiveScript implements MessageListener, Paint
         g.drawRect(4, 4, 150, 85);
         g.setFont(ARIAL);
         g.setColor(WHITE);
-        g.drawString("Status: " + Variables.getStatus(), 13, 22);
+        g.drawString("Status: " + Variables.status, 13, 22);
         g.drawString("RunTime: " + hours + ":" + minutes + ":" + seconds, 13, 33);
-        g.drawString("Level: " + Variables.getLevel() + " (" + Variables.getGained() + ")", 13, 44);
+        g.drawString("Level: " + Variables.level + " (" + Variables.gained + ")", 13, 44);
         g.drawString("TTL: " + Variables.hoursToLevel + ":" + Variables.minutesToLevel + ":" + Variables.secondsToLevel, 13, 55);
         g.drawString("EXP: " + Variables.totalXp + " (" + ((int)Variables.hourExp) + ")", 13, 66);
-        g.drawString("Cut: " + Variables.getCut(), 13, 77);
+        g.drawString("Cut: " + Variables.cut, 13, 77);
     }
 }
