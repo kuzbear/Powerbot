@@ -21,8 +21,7 @@ public class WalkingHandler extends Node {
 			if(Constants.inBank() && (!Inventory.isFull())) {
 				Variables.setStatus("Walking to Tree");
 				Walking.walk(Constants.WALK_TO_TREE);
-			}
-			if((!Constants.inBank()) && Inventory.isFull()) {
+			} else if((!Constants.inBank()) && Inventory.isFull()) {
 				Variables.setStatus("Walking to Bank");
 				Walking.walk(Constants.WALK_TO_BANK);
 			}
