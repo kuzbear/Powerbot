@@ -23,9 +23,6 @@ public class BankingHandler extends Node {
 			Bank.deposit(Constants.getWillowLog(), Inventory.getCount(Constants.getWillowLog()));
 			Bank.close();
 		} else {
-			if(Players.getLocal().isMoving()) {
-				Task.sleep(100);
-			}
 			Bank.open();
 		}
 	}
