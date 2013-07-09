@@ -49,14 +49,10 @@ public class CuttingHandler extends Node {
 			if(Players.getLocal().getAnimation() == -1) {
 				tree.interact("Chop down");
 				Task.sleep(500);
-				waitFor(5000, (
-						Players.getLocal().isMoving()
-						));
-			} else {
-				if(tree.getLocation().distanceTo() > 1) {
-					tree.interact("Chop down");
-					Task.sleep(1000);
-				}
+				waitFor(5000, (Players.getLocal().isMoving()));
+			} else if(Players.getLocal().getAnimation != -1 && tree.getLocation().distanceTo() > 1) {
+				tree.interact("Chop down");
+				Task.sleep(1000);
 			}
 		} else if(tree != null && !tree.isOnScreen()) {
 			Camera.turnTo(tree);
