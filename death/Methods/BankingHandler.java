@@ -20,7 +20,7 @@ public class BankingHandler extends Node {
 	public void execute() {
 		Variables.setStatus("Banking");
 		if(Bank.isOpen()) {
-			Bank.deposit(Constants.getWillowLog(), Inventory.getCount(Constants.getWillowLog()));
+			Bank.deposit(Constants.WILLOW_LOG, Inventory.getCount(Constants.WILLOW_LOG);
 			Bank.close();
 		} else {
 			Bank.open();
