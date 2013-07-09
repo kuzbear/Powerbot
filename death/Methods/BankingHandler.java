@@ -18,7 +18,7 @@ public class BankingHandler extends Node {
 
 	@Override
 	public void execute() {
-		Variables.setStatus("Banking");
+		Variables.status = "Banking";
 		if(Bank.isOpen()) {
 			Bank.deposit(Constants.WILLOW_LOG, Inventory.getCount(Constants.WILLOW_LOG);
 			Bank.close();
