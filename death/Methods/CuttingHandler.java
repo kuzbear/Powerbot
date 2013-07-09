@@ -27,7 +27,7 @@ public class CuttingHandler extends Node {
 	@Override
 	public boolean activate() {
 		SceneObject tree = SceneEntities.getNearest(Constants.getWillowtree());
-		return tree.getLocation().distanceTo() < 7 && !Inventory.isFull();
+		return tree!= null && tree.getLocation().distanceTo() < 7 && !Inventory.isFull();
 	}
 
 	@Override
