@@ -37,14 +37,14 @@ public class CuttingHandler extends Node {
 	
 	@Override
 	public boolean activate() {
-		SceneObject tree = SceneEntities.getNearest(Constants.getWillowtree());
+		SceneObject tree = SceneEntities.getNearest(Constants.WILLOW_TREE;
 		return tree!= null && tree.getLocation().distanceTo() < 7 && !Inventory.isFull();
 	}
 
 	@Override
 	public void execute() {
-		SceneObject tree = SceneEntities.getNearest(Constants.getWillowtree());
-		Variables.setStatus("Cutting Trees");
+		SceneObject tree = SceneEntities.getNearest(Constants.WILLOW_TREE);
+		Variables.status = "Cutting Trees";
 		if(tree != null && tree.isOnScreen()) {
 			if(Players.getLocal().getAnimation() == -1) {
 				tree.interact("Chop down");
