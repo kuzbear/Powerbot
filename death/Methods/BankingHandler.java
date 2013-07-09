@@ -21,9 +21,22 @@ public class BankingHandler extends Node {
 		Variables.status = "Banking";
 		if(Bank.isOpen()) {
 			Bank.deposit(Constants.WILLOW_LOG, Inventory.getCount(Constants.WILLOW_LOG);
-			Bank.close();
+			Task.sleep(100);
+			if(!Inventory.contains(Constants.WILLOW_LOG) {
+				Bank.close();
+			}
 		} else {
 			Bank.open();
+			if(!Bank.open()) {
+				Timer timer = new Timer(2000);
+				while(!Bank.isOpen()) {
+					Task.sleep(20);
+					if(Players.getLocal().isMoving())
+					timer.reset();
+					if(!timer.isRunning() || Bank.isOpen())
+					break;
+				}
+			}
 		}
 	}
 
