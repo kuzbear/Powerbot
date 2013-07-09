@@ -14,7 +14,7 @@ import death.Resources.Variables;
 
 public class CuttingHandler extends Node {
 	
-	public boolean waitFor(int time, boolean Condition) {
+	public boolean waitForChop(int time, boolean Condition) {
 		Variables.timer = new Timer(time);
 		while(Variables.timer.isRunning()) {
 			if(Condition)
@@ -23,6 +23,17 @@ public class CuttingHandler extends Node {
 		}
 		return false;
 	}
+	
+	/*if(tree.interact("Chop", tree.getSceneObject().getName()) {
+		final Timer timer = new Timer(5000);
+		while(Players.getLocal().getAnimation() == -1) {
+			Task.sleep(10);
+			if(Players.getLocal().isMoving())
+			timer.reset();
+			if(Players.getLocal().getAnimation() != -1 || !timer.isRunning())
+			break;
+		}
+	}*/
 	
 	@Override
 	public boolean activate() {
